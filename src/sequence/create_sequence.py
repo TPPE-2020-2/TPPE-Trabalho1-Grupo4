@@ -3,6 +3,7 @@ from .sequence_diagram_block import SequenceDiagramBlock
 from .lifelines import Lifelines
 from .fragments import Fragments
 import os
+from .xml import XML
 
 from .excepts import EmptyGuardConditionException, MessageFormatException
 
@@ -70,13 +71,13 @@ def create_sequence_diagram(activity):
                         m_name, m_prob, source_lifeline, target_lifeline
                     )
 
-                    sequence_diagram.elements_update(option - 1)
+                    sequence_diagram.elements_update(option1 - 1)
 
                 elif option1 == 2:
                     fragment_name = input("Nome do Fragmento: ")
 
                     sequence_diagram.persist_fragments(fragment_name)
-                    sequence_diagram.elements_update(option - 1)
+                    sequence_diagram.elements_update(option1 - 1)
 
                 else:
                     break
@@ -84,5 +85,6 @@ def create_sequence_diagram(activity):
             seq.create_single_sequence_diagram(sequence_diagram)
 
         else:
-            seq.create_xml(activity)
+            xml = XML(seq.lifelines, seq.fragments,seq.sequence_diagrams, activity)
+            xml.create_xml()
             break
