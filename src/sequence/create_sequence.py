@@ -62,7 +62,7 @@ def create_sequence_diagram(activity):
                     target_lifeline = input("Lifeline Alvo: ")
 
                     if (
-                        not seq.lifeline_exists_in_Sequence_Diagram(source_lifeline) and
+                        not seq.lifeline_exists_in_Sequence_Diagram(source_lifeline) or
                         not seq.lifeline_exists_in_Sequence_Diagram(target_lifeline)
                     ):
                         raise MessageFormatException

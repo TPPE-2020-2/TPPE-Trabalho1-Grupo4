@@ -1,4 +1,3 @@
-import time
 class XML:
 
     def __init__(self, lifeline, fragments, sequence_diagrams, activity):
