@@ -11,22 +11,16 @@ class SequenceDiagrams():
         self.lifelines = []
         self.fragments = []
 
-    def create_and_persist_lifelines(self, lifeline_name):
-        lifeline = Lifelines(lifeline_name)
+    def append_lifeline(self, lifeline):
         self.lifelines.append(lifeline)
 
-    def create_and_persist_fragments(
-        self, fragment_name, fragment_represented
-    ):
-
-        if self.sequence_diagram_exists(fragment_represented) is True:
-            fragment = Fragments(fragment_name, fragment_represented)
+    def append_fragment(self, fragment):
+        if self.sequence_diagram_exists(fragment.represented) is True:
             self.fragments.append(fragment)
-
         else:
             raise EmptyOptionalFragment
 
-    def lifeline_exists(self, name):
+    def lifeline_exists_in_Sequence_Diagram(self, name):
         for i in self.lifelines:
             if i.name == name:
                 return True

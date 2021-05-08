@@ -1,5 +1,7 @@
 from .sequence_diagrams import SequenceDiagrams
 from .sequence_diagram_block import SequenceDiagramBlock
+from .lifelines import Lifelines
+from .fragments import Fragments
 import os
 
 from .excepts import EmptyGuardConditionException, MessageFormatException
@@ -21,15 +23,15 @@ def create_sequence_diagram(activity):
 
         if option == 1:
             lifeline_name = input("Nome da Lifeline: ")
-            seq.create_and_persist_lifelines(lifeline_name)
+            lifeline = Lifelines(lifeline_name)
+            seq.append_lifeline(lifeline)
 
         elif option == 2:
             fragment_name = input("Nome do Fragmento: ")
             fragment_represented = input("Fragmento representado por: ")
+            fragment = Fragments(fragment_name, fragment_represented)
 
-            seq.create_and_persist_fragments(
-                fragment_name, fragment_represented
-            )
+            seq.append_fragment(fragment)
 
         elif option == 3:
             name = input("Nome do Diagrama: ")  #
@@ -59,8 +61,8 @@ def create_sequence_diagram(activity):
                     target_lifeline = input("Lifeline Alvo: ")
 
                     if (
-                        not seq.lifeline_exists(source_lifeline) and
-                        not seq.lifeline_exists(target_lifeline)
+                        not seq.lifeline_exists_in_Sequence_Diagram(source_lifeline) and
+                        not seq.lifeline_exists_in_Sequence_Diagram(target_lifeline)
                     ):
                         raise MessageFormatException
 
