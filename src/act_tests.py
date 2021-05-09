@@ -70,32 +70,6 @@ def test_create_activity3():
     assert 0 == obj.elements.elements_order[1]
 
 
-def test_initiate_decision():
-    obj = ActivityDiagram('ad1')
-
-    obj.create_initial_node('n1')
-    obj.elements.initiate_decision(1)
-
-    assert [[]] == obj.elements.decision_node
-
-
-def test_initiate_decision2():
-    obj = ActivityDiagram('ad2')
-
-    obj.create_initial_node('n2')
-    obj.elements.initiate_decision(2)
-
-    assert [[], []] == obj.elements.decision_node
-
-
-def test_initiate_decision3():
-    obj = ActivityDiagram('ad3')
-
-    obj.create_initial_node('n3')
-    obj.elements.initiate_decision(3)
-
-    assert [[], [], []] == obj.elements.decision_node
-
 
 def test_decision_create_activity():
     decision = DecisionStream()
@@ -189,7 +163,6 @@ def test_decision_create_merge3():
 def test_create_decision():
     obj = ActivityDiagram('ad1')
     obj.create_initial_node('n1')
-    obj.elements.initiate_decision(1)
 
     decision = DecisionStream()
     decision.create_activity('nda1')
@@ -216,7 +189,6 @@ def test_create_decision():
 def test_create_decision2():
     obj = ActivityDiagram('ad2')
     obj.create_initial_node('n2')
-    obj.elements.initiate_decision(1)
 
     decision = DecisionStream()
     decision.create_activity('nda2')
@@ -243,7 +215,6 @@ def test_create_decision2():
 def test_create_decision3():
     obj = ActivityDiagram('ad3')
     obj.create_initial_node('n3')
-    obj.elements.initiate_decision(2)
 
     decision = DecisionStream()
     decision.create_activity('nda3.1')

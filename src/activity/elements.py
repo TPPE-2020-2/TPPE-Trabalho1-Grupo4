@@ -1,5 +1,5 @@
 from .exceptions import ActivityDiagramRuleException
-
+import time
 
 class ActivityElements():
 
@@ -8,7 +8,7 @@ class ActivityElements():
 
         self.activity_name = []
 
-        self.decision_node = [[]]
+        self.decision_node = [[] for i in range(1000)]
         self.decision_node_number = 0
 
         self.merge_node = []
@@ -19,11 +19,7 @@ class ActivityElements():
     def create_activity(self, name):
         activity = name
         self.activity_name.append(activity)
-
         self.elements_order.append(0)
-
-    def initiate_decision(self, streams):
-        self.decision_node = [[] for i in range(streams)]
 
     def create_decision(self, decision):
         self.decision_node[self.decision_node_number].append(decision)
