@@ -16,4 +16,4 @@
 ## Execução dos testes
 - Existem 2 arquivos de teste, sendo eles `act_tests.py` e `seq_testes.py`;
 - Para rodar a suíte de testes, use o comando `pytest` para cada arquivo;
-- `pytest act_tests.py` e `pytest seq_tests.py`;
+- `pytest act_tests.py` e `pytest seq_tests.py` ou `python3 -m pytest act_tests.py` e `python3 -m pytest seq_tests.py`
