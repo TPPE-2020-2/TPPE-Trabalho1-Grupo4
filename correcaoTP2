@@ -1,0 +1,22 @@
+Observações:
+------------
+A operação de mover método não foi aplicada, mas sim a operação "Renomear
+método". 
+
+A operação "Substituir método por objeto-método" não consiste em mover todos os métodos de uma classe para uma nova classe substituta (isso seria o equivalente a "Extrair Classe" ou "Mover método"). "Substituir método po objeto-método" consiste em transformar *um método em uma classe*, transformando variáveis temporárias em atributos e o corpo do método original em um método "computar" na nova classe. Isso não foi realizado.
+
+Substituir condicional por polimorfismo implica na criação de um método polimórfico sobrescrito nas subclasses. Esse método está implementado em `choose_option`.
+
+Critérios de avaliação:
+-----------------------
+
+Ref. 1 - mover método ou mover atributo (20 pontos): NOk - 0 pontos.
+
+Ref. 2 - extrair método (20 pontos): OK - 20 pontos. 
+
+Ref. 3 - substituir método por objeto-método (30 pontos): NOk - 0 pontos.
+
+Ref. 4 - substituir condicional por polimorfismo (30 pontos): OK - 30 pontos.
+
+
+NOTA FINAL: 50 pontos.
